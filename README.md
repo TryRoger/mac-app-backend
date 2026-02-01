@@ -99,3 +99,21 @@ Example response:
 ```
 
 Each channel is isolated and anchored by the UUID issued from the create endpoint; messages are stored in Redis lists to provide FIFO delivery semantics.
+
+## Utilities
+
+### Speech → text (multilingual)
+
+Use `scripts/speech_to_text.py` with your `OPENAI_API_KEY` set:
+
+```bash
+export OPENAI_API_KEY="sk-..."
+python scripts/speech_to_text.py --audio "/path/to/audio_or_video_file" --print-text-only
+```
+
+Record from microphone (requires local deps):
+
+```bash
+pip install sounddevice soundfile
+python scripts/speech_to_text.py --mic --duration 4 --print-text-only
+```
